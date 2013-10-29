@@ -457,6 +457,9 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
             }    
 
         }else if(f.isDirectory()){
+            File[] files = f.listFiles();
+            if(files == null) return;
+            
             deleteAllItems();
 
             mCurrentPathFile = f;
@@ -465,9 +468,6 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
             if (misAddToBackWardFiles) {
                 mbackwardfiles.add(mCurrentPathFile.getParentFile());
             }
-
-            File[] files = f.listFiles();
-
             // 排序
             Arrays.sort(files, new FileComparator());
 
@@ -528,6 +528,7 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
         }
         if (src.isDirectory()) {
             File[] f = src.listFiles();
+            if(f == null) return false;
             tar.mkdir();
             for (int i = 0; i < f.length; i++) {
                 copyFile(f[i].getAbsoluteFile(), new File(tar.getAbsoluteFile() + File.separator
@@ -709,7 +710,8 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
         boolean ret = false;
 
         File[] files = mCurrentPathFile.listFiles();
-
+        if(files == null) return false;
+        
         for(File file:files){
             if((f.getName()).equals(file.getName())){
                 ret = true;
