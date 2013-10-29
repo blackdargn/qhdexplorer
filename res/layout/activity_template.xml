@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout
+        android:id="@+id/topBarLay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btmBarLay"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/containerLay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/btmBarLay"
+        android:layout_below="@+id/topBarLay" >
+    </LinearLayout>
+</RelativeLayout>

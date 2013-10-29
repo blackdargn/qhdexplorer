@@ -32,7 +32,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -66,6 +65,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dm.DMActivity;
 import com.hd.Constant;
 import com.hd.explorer.broadcastreceiver.SystemBroadCastReceiver;
 import com.hd.explorer.interfaces.ISDCardListener;
@@ -82,7 +82,7 @@ import com.hd.explorer.interfaces.ISDCardListener;
  *
  * @see 	 
  */
-public class HDExplorerActivity extends Activity implements OnItemClickListener,ISDCardListener{
+public class HDExplorerActivity extends DMActivity implements OnItemClickListener,ISDCardListener{
 
     private static final String TAG = "HDExplorer";
     //Boolean Flags

@@ -30,12 +30,13 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 import android.view.WindowManager;
 
-public class HDPreferenceActivity extends PreferenceActivity implements
+import com.dm.DMPrefenceActivity;
+
+public class HDPreferenceActivity extends DMPrefenceActivity implements
 OnPreferenceChangeListener, OnPreferenceClickListener {
 
     private static final String TAG = "HDSettings";
