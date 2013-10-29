@@ -15,14 +15,17 @@ public class DMUtil {
     public static final String FlexibleInlinePPID2 = "16TLm7ZaApAz1NUH-VfLsbXi";
     
     public static DomobAdView bindView(final Activity activity, ViewGroup container, String placeId) {
+        DomobAdView mAdviewFlexibleAdView = createAdView(activity, placeId);
+        container.addView(mAdviewFlexibleAdView);
+        return mAdviewFlexibleAdView;
+    }
+    
+    public static DomobAdView createAdView( final Activity activity, String placeId) {
         DomobAdView mAdviewFlexibleAdView = new DomobAdView(activity, DMUtil.PUBLISHER_ID, placeId, DomobAdView.INLINE_SIZE_FLEXIBLE);
         mAdviewFlexibleAdView.setKeyword("game");
         mAdviewFlexibleAdView.setUserGender("male");
         mAdviewFlexibleAdView.setUserBirthdayStr("1984-05-08");
         mAdviewFlexibleAdView.setUserPostcode("518000");
-        
-        container.addView(mAdviewFlexibleAdView);
-        
         mAdviewFlexibleAdView.setAdEventListener(new DomobAdEventListener() {
             @Override
             public void onDomobLeaveApplication(DomobAdView arg0) {
@@ -55,7 +58,7 @@ public class DMUtil {
                     view.requestRefreshAd();
                     view.setRefreshable(true);
                 }
-                Log.d("##", "Failed!: ");
+                Log.d("##", "Failed!");
             }
             
             @Override
@@ -63,7 +66,6 @@ public class DMUtil {
                 
             }
         });
-        
         return mAdviewFlexibleAdView;
     }
     
