@@ -214,13 +214,14 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
             if (f != null) {
                 mSDCardPath = f.getAbsolutePath();
             }
-
             f = Environment.getRootDirectory();//获取根目录 
             if (f != null) {
                 mRootPath = f.getAbsolutePath();
             }       
-        }   	
-
+        }   else {
+            mSDCardPath = "/";
+            mRootPath = "/";
+        }
     }
 
     public void swapViewMode(){
@@ -648,7 +649,6 @@ public class HDExplorerActivity extends DMActivity implements OnItemClickListene
                 finish();  
                 System.exit(0);  
             }  
-
         }
         else{
             File f = mCurrentPathFile;
