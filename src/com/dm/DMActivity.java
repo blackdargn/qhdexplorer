@@ -1,10 +1,7 @@
 package com.dm;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import cn.domob.android.ads.DomobAdView;
@@ -15,13 +12,7 @@ public class DMActivity extends Activity {
     
     private DomobAdView adView1;
     private DomobAdView adView2;
-    
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);   
-       requestWindowFeature(Window.FEATURE_NO_TITLE);
-       getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
-    }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
