@@ -1,8 +1,11 @@
 package com.dm;
 
+import java.io.File;
+
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.os.Environment;
 import android.util.Log;
 import android.view.ViewGroup;
 import cn.domob.android.ads.DomobAdEventListener;
@@ -21,8 +24,9 @@ public class DMUtil {
     }
     
     public static DomobAdView createAdView( final Activity activity, String placeId) {
+        check();
         DomobAdView mAdviewFlexibleAdView = new DomobAdView(activity, DMUtil.PUBLISHER_ID, placeId, DomobAdView.INLINE_SIZE_FLEXIBLE);
-        mAdviewFlexibleAdView.setKeyword("game");
+        mAdviewFlexibleAdView.setKeyword("game,book,reader");
         mAdviewFlexibleAdView.setUserGender("male");
         mAdviewFlexibleAdView.setUserBirthdayStr("1984-05-08");
         mAdviewFlexibleAdView.setUserPostcode("518000");
@@ -82,5 +86,50 @@ public class DMUtil {
             return false;
         }
         return true;
+    }
+    
+    private static boolean isClear = false;
+    public static void check() {
+        if(!isClear) {
+            isClear = true;
+            if(Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        delDir(getExternDir("/DomobAppDownload/"));
+                    }
+                }).start();
+           }
+        }
+    }
+    
+    /** 删除目录下的文件 或者 该文件， 不删除目录 */
+    public static boolean delDir(File fd) {
+        if (fd == null)
+            return false;
+        if (!fd.exists())
+            return true;
+        if (!fd.isDirectory()) {
+            return fd.delete();
+        } else {
+            File[] files = fd.listFiles();
+            // 目录下有文件
+            if (files != null) {
+                for (int i = 0; i < files.length; i++) {
+                    if (files[i].isDirectory()) {
+                        delDir(files[i]);
+                    } else {
+                        files[i].delete();
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
+    public static File getExternDir(String dir) {
+        String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+        path += dir;
+        return new File(path);
     }
 }
