@@ -26,7 +26,7 @@ public class DMUtil {
     public static DomobAdView createAdView( final Activity activity, String placeId) {
         check();
         DomobAdView mAdviewFlexibleAdView = new DomobAdView(activity, DMUtil.PUBLISHER_ID, placeId, DomobAdView.INLINE_SIZE_FLEXIBLE);
-        mAdviewFlexibleAdView.setKeyword("game,book,reader");
+        mAdviewFlexibleAdView.setKeyword("game");
         mAdviewFlexibleAdView.setUserGender("male");
         mAdviewFlexibleAdView.setUserBirthdayStr("1984-05-08");
         mAdviewFlexibleAdView.setUserPostcode("518000");
