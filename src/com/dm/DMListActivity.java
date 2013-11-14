@@ -39,6 +39,8 @@ public class DMListActivity extends ListActivity {
         adView2 = DMUtil.bindView(this, btmBarLay, DMUtil.FlexibleInlinePPID2);
         
         setContentView(template);
-        getListView().addFooterView(DMUtil.createAdView(this, DMUtil.FlexibleInlinePPID2));
+        MLinelayout line = new MLinelayout(this);
+        line.addView(DMUtil.createAdView(this, DMUtil.FlexibleInlinePPID2));
+        getListView().addFooterView(line);
     }
 }
