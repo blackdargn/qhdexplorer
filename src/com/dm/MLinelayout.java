@@ -30,19 +30,12 @@ public class MLinelayout extends LinearLayout
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev)
-    {
-        if(DMUtil.BUFFED) {
-            return true;
-        }
-        return super.onInterceptTouchEvent(ev);
-    }
-    
-    @Override
     public boolean dispatchTouchEvent(MotionEvent ev)
     {
-        if(DMUtil.BUFFED) {
-            return true;
+        if(ev.getAction() == MotionEvent.ACTION_DOWN) {
+            if(DMUtil.isBuffed()) {
+                return true;
+            }
         }
         return super.dispatchTouchEvent(ev);
     }
