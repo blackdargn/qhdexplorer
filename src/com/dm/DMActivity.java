@@ -16,8 +16,8 @@ public class DMActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        adView1.requestRefreshAd();
-        adView2.requestRefreshAd();
+        DMUtil.requestRefresh(adView1);
+        DMUtil.requestRefresh(adView2);
     }
     
     @Override
